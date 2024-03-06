@@ -76,6 +76,15 @@ public class CommandNick implements TabExecutor {
     }
 
     // Make sure the nickname is alphanumeric if that's enabled
+    if (HexNicks.config().REQUIRE_ALPHANUMERIC && nickInput.contains("<")) {
+      Messages.NoColors.send(player);
+      return true;
+    }
+    if (HexNicks.config().REQUIRE_ALPHANUMERIC && nickInput.contains(">")) {
+      Messages.NoColors.send(player);
+      return true;
+    }
+ 
     if (HexNicks.config().REQUIRE_ALPHANUMERIC && !plainTextNick.matches("\\w+")) {
       Messages.NON_ALPHANUMERIC.send(player);
       return true;
@@ -90,7 +99,7 @@ public class CommandNick implements TabExecutor {
     }
 
     // Set the nickname to the default color if there's no color specified
-    nickname = HexNicks.config().DEFAULT_NICK_COLOR;
+    nickname = nickname.color(HexNicks.config().DEFAULT_NICK_COLOR);
 
     // Make sure the nickname isn't too short
     int minLength = HexNicks.config().MIN_LENGTH;
