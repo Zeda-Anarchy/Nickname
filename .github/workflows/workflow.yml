@@ -1,0 +1,8 @@
+- name: Auto Release
+
+
+              
+  uses: CupOfTea696/gh-action-auto-release@v1.0.2
+
+
+            
