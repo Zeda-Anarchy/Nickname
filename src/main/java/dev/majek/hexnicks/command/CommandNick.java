@@ -90,7 +90,7 @@ public class CommandNick implements TabExecutor {
     }
 
     // Set the nickname to the default color if there's no color specified
-    nickname = HexNicks.config().DEFAULT_NICK_COLOR
+    nickname = HexNicks.config().DEFAULT_NICK_COLOR;
 
     // Make sure the nickname isn't too short
     int minLength = HexNicks.config().MIN_LENGTH;
