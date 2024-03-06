@@ -119,8 +119,9 @@ public interface Messages {
           .configStringPlaceholders("messages.joinAnnouncement", "<yellow>%player% has the nickname</yellow> %nick%", player)
           .replaceText(TextReplacementConfig.builder().matchLiteral("%player%").replacement(player.getName()).build())
           .replaceText(TextReplacementConfig.builder().matchLiteral("%nick%").replacement(nickname).build());
+    Args0 NoColors = () -> MiscUtils.configString("messages.NoColors", "<red>Nickname colors have been disabled due to impersonation.");
 
-  /**
+    /**
    * A message that has no arguments that need to be replaced.
    */
   interface Args0 {
